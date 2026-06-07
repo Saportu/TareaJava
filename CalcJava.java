@@ -59,10 +59,52 @@ public class CalcJava {
         }
     }
 
-    // metdo para calcular operaciones inversas 
+    // Metodo para calcular operaciones inversas 
     public static void inversas(Scanner sc) {
-        // TODO: implementar. Ojo: arcsin y arccos SOLO aceptan valores entre -1 y 1.
-        System.out.println("Operacion aun no implementada.");
+        System.out.println("\nSeleccione la funcion:");
+        System.out.println(" 1. arcoseno (arcsin)");
+        System.out.println(" 2. arcocoseno (arccos)");
+        System.out.println(" 3. arcotangente (arctan)");
+        System.out.print("Opcion: ");
+        int funcion = sc.nextInt(); // Lee la funcion que se quiere relizar dependiendo de la razón trigonométrica 
+
+        double valor; // Variable donde se almacenará el valor ingresado
+
+        // arcsin y arcoss solo aceptan valores entre -1 y 1
+        if (funcion == 1 || funcion == 2){
+            System.out.print("Ingrese un valor entre -1 y 1: ");
+            valor = sc.nextDouble(); // Lee el número decimal
+
+            // Valida que el valor esté en el rango permitido
+            if (valor < -1 || valor > 1) {
+                System.out.println("Error: el valor debe estar entre -1 y 1.");
+                return; // sale del método si el valor no es válido
+            }
+        } else{
+            System.out.print("Ingrese un valor: ");
+            valor = sc.nextDouble(); // Lee el número decimal
+        }
+
+        switch (funcion) {
+            case 1:
+                double arcsin = Math.toDegrees(Math.asin(valor)); // Calcula el arcoseno (asin) y lo convierte de radianes a grados
+                // Muestra el resultado
+                System.out.println("El arcoseno de " + valor + " es: " + arcsin + " grados"); 
+                break;
+            case 2:
+                double arccos = Math.toDegrees(Math.acos(valor)); // Calcula el arcocoseno (acos) y convierte a grados
+                // Muestra el resultado
+                System.out.println("El arcocoseno de " + valor + " es: " + arccos + " grados"); 
+                break;
+            case 3:
+                double arctan = Math.toDegrees(Math.atan(valor)); // Calcula el arcotangente (atan) y convierte a grados
+                // Muestra el resultado
+                System.out.println("La arcotangente de " + valor + " es: " + arctan + " grados"); 
+                break;
+            default:
+                // Si el usuario ingresa una opción no válida
+                System.out.println("Opcion no valida");
+        }
     }
 
     // metodo para calcular operaciones hiperbolicas 
